@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GenLink – Nutrition & Diet Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
+  body { background-color:#f4f6fb; color:#333; }
+
+  header {
+    background: linear-gradient(90deg, rgba(19,46,152,0.85), #6b8ae8);
+    color:white; text-align:center; padding:60px 20px;
+    border-radius:0 0 50px 50px; box-shadow:0 5px 20px rgba(0,0,0,0.2);
+  }
+  header h1 { font-size:2.4rem; margin-bottom:10px; }
+  header p { font-size:1rem; opacity:0.9; }
+
+  .container { max-width:1200px; margin:60px auto; padding:0 25px; }
+
+  /* Charts Section */
+  .charts { display:grid; grid-template-columns: repeat(auto-fit, minmax(400px,1fr)); gap: 40px; margin-top:40px; }
+  .chart-card { background:#fff; border-radius:20px; padding:30px; box-shadow:0 5px 20px rgba(0,0,0,0.1); transition: transform 0.3s; }
+  .chart-card:hover { transform:translateY(-5px); box-shadow:0 8px 25px rgba(19,46,152,0.15); }
+  .chart-card h3 { color: rgba(19,46,152,0.9); font-size:1.2rem; margin-bottom:15px; text-align:center; }
+  canvas { width:100%; max-height:350px; }
+
+  /* Recommended Foods Section */
+  .section-title { text-align:center; margin-top:50px; color: rgba(19,46,152,0.9); }
+  .nutrition-foods { display:grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap:25px; margin-top:30px; }
+  .food-card { background:#fff; border-radius:15px; padding:25px; box-shadow:0 5px 20px rgba(0,0,0,0.1); transition: transform 0.3s; }
+  .food-card:hover { transform:translateY(-4px); box-shadow:0 8px 25px rgba(19,46,152,0.15); }
+  .food-card h4 { color: rgba(19,46,152,0.9); margin-bottom:12px; text-align:center; }
+  .food-card ul { list-style:none; padding-left:0; }
+  .food-card ul li { padding:6px 0; color:#2F4858; font-size:0.95rem; }
+
+  /* Disease-Specific Diet Section */
+  .disease-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 30px; margin-top:50px; }
+  .disease-card { background:#fff; border-radius:18px; padding:25px; box-shadow:0 5px 20px rgba(0,0,0,0.1); transition: transform 0.3s; }
+  .disease-card:hover { transform:translateY(-5px); box-shadow:0 8px 25px rgba(19,46,152,0.15); }
+  .disease-card h3 { color: rgba(19,46,152,0.9); margin-bottom:12px; text-align:center; font-size:1.3rem; }
+  .disease-card h4 { color: #2F4858; margin-bottom:8px; font-size:1.1rem; }
+  .disease-card ul { list-style:none; padding-left:0; }
+  .disease-card ul li { padding:6px 0; color:#444; font-size:0.95rem; }
+
+  /* Summary */
+  .summary { margin-top:60px; background: rgba(19,46,152,0.05); padding:35px; border-radius:20px; text-align:center; }
+  .summary h2 { color: rgba(19,46,152,0.9); margin-bottom:15px; }
+  .summary p { color:#2F4858; font-size:1rem; line-height:1.6; }
+  .btn { background: rgba(19,46,152,0.9); color:#fff; padding:12px 25px; border-radius:8px; text-decoration:none; display:inline-block; margin-top:20px; transition:all 0.3s; }
+  .btn:hover { background:#5a7ee6; transform: translateY(-3px); }
+
+  @media(max-width:768px){
+    header h1 { font-size:2rem; }
+    .charts, .nutrition-foods, .disease-grid { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>GenLink – Health & Diet Dashboard</h1>
+  <p>Track nutrition, recommended foods, and disease-specific diet tips</p>
+</header>
+
+<div class="container">
+
+  <!-- Charts Section -->
+  <div class="charts">
+    <div class="chart-card">
+      <h3>🍎 Daily Nutrition Breakdown</h3>
+      <canvas id="nutritionPie"></canvas>
+    </div>
+    <div class="chart-card">
+      <h3>🥗 Weekly Nutrition Comparison</h3>
+      <canvas id="nutritionBar"></canvas>
+    </div>
+  </div>
+
+  <!-- Recommended Foods Section -->
+  <h2 class="section-title">🥦 Recommended Foods</h2>
+  <div class="nutrition-foods">
+    <div class="food-card">
+      <h4>Proteins</h4>
+      <ul>
+        <li>Eggs</li>
+        <li>Chicken Breast</li>
+        <li>Tofu</li>
+        <li>Lentils</li>
+        <li>Greek Yogurt</li>
+      </ul>
+    </div>
+    <div class="food-card">
+      <h4>Carbohydrates</h4>
+      <ul>
+        <li>Brown Rice</li>
+        <li>Quinoa</li>
+        <li>Whole Wheat Bread</li>
+        <li>Oats</li>
+        <li>Sweet Potatoes</li>
+      </ul>
+    </div>
+    <div class="food-card">
+      <h4>Fats</h4>
+      <ul>
+        <li>Avocado</li>
+        <li>Olive Oil</li>
+        <li>Almonds</li>
+        <li>Peanut Butter</li>
+        <li>Fatty Fish</li>
+      </ul>
+    </div>
+    <div class="food-card">
+      <h4>Vitamins & Minerals</h4>
+      <ul>
+        <li>Spinach</li>
+        <li>Broccoli</li>
+        <li>Carrots</li>
+        <li>Bell Peppers</li>
+        <li>Citrus Fruits</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Disease-Specific Diet Section -->
+  <h2 class="section-title">🧬 Disease-Specific Diet Recommendations</h2>
+  <div class="disease-grid">
+    <!-- Diabetes -->
+    <div class="disease-card">
+      <h3>🩸 Diabetes</h3>
+      <h4>Recommended Foods:</h4>
+      <ul>
+        <li>Leafy greens</li>
+        <li>Whole grains</li>
+        <li>Low-glycemic fruits</li>
+        <li>Nuts and seeds</li>
+        <li>Legumes</li>
+      </ul>
+      <h4>Foods to Avoid:</h4>
+      <ul>
+        <li>Sugary drinks</li>
+        <li>White bread & pastries</li>
+        <li>Processed snacks</li>
+      </ul>
+    </div>
+    <!-- Hypertension -->
+    <div class="disease-card">
+      <h3>❤️ Hypertension</h3>
+      <h4>Recommended Foods:</h4>
+      <ul>
+        <li>Bananas (potassium-rich)</li>
+        <li>Beets & beet juice</li>
+        <li>Leafy greens</li>
+        <li>Oats & whole grains</li>
+        <li>Low-fat dairy</li>
+      </ul>
+      <h4>Foods to Avoid:</h4>
+      <ul>
+        <li>Excess salt</li>
+        <li>Processed meats</li>
+        <li>Sugary snacks</li>
+      </ul>
+    </div>
+    <!-- Heart Disease -->
+    <div class="disease-card">
+      <h3>💓 Heart Disease</h3>
+      <h4>Recommended Foods:</h4>
+      <ul>
+        <li>Fatty fish</li>
+        <li>Olive oil</li>
+        <li>Whole grains</li>
+        <li>Fruits & vegetables</li>
+        <li>Nuts</li>
+      </ul>
+      <h4>Foods to Avoid:</h4>
+      <ul>
+        <li>Saturated fats</li>
+        <li>Fried foods</li>
+        <li>Refined sugar</li>
+      </ul>
+    </div>
+    <!-- Obesity -->
+    <div class="disease-card">
+      <h3>⚖️ Obesity</h3>
+      <h4>Recommended Foods:</h4>
+      <ul>
+        <li>High-fiber foods</li>
+        <li>Lean proteins</li>
+        <li>Fruits</li>
+        <li>Legumes & beans</li>
+      </ul>
+      <h4>Foods to Avoid:</h4>
+      <ul>
+        <li>Sugary drinks</li>
+        <li>Fast food & fried snacks</li>
+        <li>Refined carbohydrates</li>
+      </ul>
+    </div>
+    <!-- High Cholesterol -->
+    <div class="disease-card">
+      <h3>🧬 High Cholesterol</h3>
+      <h4>Recommended Foods:</h4>
+      <ul>
+        <li>Oats & barley</li>
+        <li>Fatty fish</li>
+        <li>Nuts & seeds</li>
+        <li>Olive oil</li>
+        <li>Fruits & vegetables</li>
+      </ul>
+      <h4>Foods to Avoid:</h4>
+      <ul>
+        <li>Red meat & processed meats</li>
+        <li>Butter & cream</li>
+        <li>Fried foods</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Summary Section -->
+  <div class="summary">
+    <h2>🌿 Summary</h2>
+    <p>GenLink helps families track nutrition trends, make informed food choices, and follow disease-specific diets for better health outcomes.</p>
+    <a href="#" class="btn">View Full Nutrition Report</a>
+  </div>
+
+</div>
+
+<script>
+  // Pie Chart - Daily Nutrition
+  const ctxPie = document.getElementById('nutritionPie').getContext('2d');
+  new Chart(ctxPie, {
+    type:'pie',
+    data:{
+      labels:['Proteins','Carbs','Fats','Vitamins','Fiber'],
+      datasets:[{
+        data:[25,40,20,10,5],
+        backgroundColor:['rgba(19,46,152,0.9)','rgba(106,160,252,0.8)','rgba(255,183,77,0.8)','rgba(255,99,132,0.8)','rgba(75,192,192,0.8)'],
+        borderWidth:1
+      }]
+    },
+    options:{ responsive:true, plugins:{ legend:{ position:'bottom' } } }
+  });
+
+  // Bar Chart - Weekly Nutrition
+  const ctxBar = document.getElementById('nutritionBar').getContext('2d');
+  new Chart(ctxBar, {
+    type:'bar',
+    data:{
+      labels:['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],
+      datasets:[
+        { label:'Calories', data:[1800,2000,1900,2100,2200,2300,1950], backgroundColor:'rgba(19,46,152,0.7)', borderRadius:8 },
+        { label:'Proteins (g)', data:[55,65,60,70,75,80,68], backgroundColor:'rgba(75,192,192,0.7)', borderRadius:8 }
+      ]
+    },
+    options:{ responsive:true, plugins:{ legend:{ position:'bottom' } }, scales:{ y:{ beginAtZero:true } } }
+  });
+</script>
+
+</body>
+</html>

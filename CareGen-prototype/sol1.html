@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GenLink – Solutions</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  body {
+    background-color: #f0f4f8;
+    color: #333;
+  }
+
+  .header {
+    text-align: center;
+    background: linear-gradient(90deg, rgba(19,46,152,0.8), #5a7ee6);
+    color: #fff;
+    padding: 50px 20px;
+    border-radius: 0 0 40px 40px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+  }
+
+  .header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+  }
+
+  .header p {
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 25px;
+  }
+
+  .solution-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    margin-bottom: 80px;
+  }
+
+  .solution-section:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  .solution-text {
+    flex: 1;
+    background: #fff;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    border-left: 8px solid rgba(19,46,152,0.9);
+  }
+
+  .solution-text h2 {
+    color: rgba(19,46,152,0.9);
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+  }
+
+  .solution-text p {
+    color: #2F4858;
+    line-height: 1.6;
+    font-size: 0.98rem;
+  }
+
+  .solution-img {
+    flex: 1;
+    text-align: center;
+  }
+
+  .solution-img img {
+    width: 80%;
+    max-width: 320px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+  }
+
+  .solution-img img:hover {
+    transform: scale(1.05);
+  }
+
+  .btn {
+    display: inline-block;
+    margin-top: 20px;
+    background: rgba(19,46,152,0.9);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+  }
+
+  .btn:hover {
+    background: #5a7ee6;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 900px) {
+    .solution-section {
+      flex-direction: column !important;
+      text-align: center;
+    }
+    .solution-img img {
+      width: 70%;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>GenLink – Smart Health Solutions</h1>
+    <p>Technology-driven insights to protect your family's health across generations</p>
+  </div>
+
+  <div class="container">
+
+    <div class="solution-section">
+      <div class="solution-text">
+        <h2>🧬 AI-Driven Family Health Tree</h2>
+        <p>GenLink automatically builds an interactive family health tree that visually connects members, highlighting common diseases, genetic patterns, and lifestyle risks. It helps families understand their shared health story clearly.</p>
+        <a href="#" class="btn">Learn More</a>
+      </div>
+      <div class="solution-img">
+        <img src="https://cdn-icons-png.flaticon.com/512/4185/4185078.png" alt="Family Tree">
+      </div>
+    </div>
+
+    <div class="solution-section">
+      <div class="solution-text">
+        <h2>🔒 Privacy-Focused Health Data</h2>
+        <p>Your data stays yours. Every piece of information you add is encrypted and stored securely, viewable only by consent. GenLink follows top privacy protocols to ensure your family’s safety and trust.</p>
+        <a href="#" class="btn">Explore Security</a>
+      </div>
+      <div class="solution-img">
+        <img src="https://cdn-icons-png.flaticon.com/512/2897/2897783.png" alt="Data Security">
+      </div>
+    </div>
+
+    <div class="solution-section">
+      <div class="solution-text">
+        <h2>📊 Predictive Health Insights</h2>
+        <p>Using machine learning, GenLink identifies hereditary health risks and gives early alerts and preventive suggestions, empowering you to make proactive lifestyle changes before problems arise.</p>
+        <a href="#" class="btn">View Insights</a>
+      </div>
+      <div class="solution-img">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Health Insights">
+      </div>
+    </div>
+
+    <div class="solution-section">
+      <div class="solution-text">
+        <h2>💡 Personalized Prevention Plans</h2>
+        <p>GenLink tailors recommendations for each family member — from diet and fitness to routine checkups — based on health data and family patterns, helping every generation stay healthier.</p>
+        <a href="#" class="btn">See Recommendations</a>
+      </div>
+      <div class="solution-img">
+        <img src="https://cdn-icons-png.flaticon.com/512/4320/4320338.png" alt="Prevention Plan">
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

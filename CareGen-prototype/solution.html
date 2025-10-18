@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GenLink – Health Solutions & Precautions</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+  body { background-color: #f3f7fc; padding: 30px; }
+
+  .header {
+    background: linear-gradient(90deg, rgba(19,46,152,0.85), #3b70d8);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    margin-bottom: 40px;
+  }
+
+  .header h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  .header p {
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+  }
+
+  h2 {
+    text-align: center;
+    color: #13469a;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+
+  .disease-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+  }
+
+  .disease-card {
+    background: #f6f8fc;
+    padding: 25px;
+    border-radius: 15px;
+    border-left: 6px solid #13469a;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .disease-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  }
+
+  .disease-card h3 {
+    color: #13469a;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+  }
+
+  .disease-card p {
+    color: #333;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+  }
+
+  .label {
+    display: inline-block;
+    background: #13469a;
+    color: #fff;
+    padding: 4px 10px;
+    font-size: 0.85rem;
+    border-radius: 6px;
+    margin-bottom: 8px;
+  }
+
+  @media (max-width: 768px) {
+    .disease-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>GenLink – Health Solutions & Precautions</h1>
+    <p>Explore common diseases with their solutions, prevention methods, and cures.</p>
+  </div>
+
+  <div class="container">
+    <h2>Family Health Guidance</h2>
+    <div class="disease-grid">
+
+      <div class="disease-card">
+        <h3>🩸 Diabetes</h3>
+        <p><span class="label">Cause</span> Insulin imbalance or resistance, often genetic.</p>
+        <p><span class="label">Precautions</span> Maintain balanced diet, avoid excess sugar, regular checkups.</p>
+        <p><span class="label">Prevention</span> Exercise daily, maintain healthy weight, monitor glucose levels.</p>
+        <p><span class="label">Cure</span> No complete cure, but controllable through medication and lifestyle management.</p>
+      </div>
+
+      <div class="disease-card">
+        <h3>❤️ Heart Disease</h3>
+        <p><span class="label">Cause</span> High blood pressure, cholesterol, poor diet, genetics.</p>
+        <p><span class="label">Precautions</span> Limit salt and saturated fats, avoid smoking and alcohol.</p>
+        <p><span class="label">Prevention</span> Regular cardio exercise, stress management, heart screenings.</p>
+        <p><span class="label">Cure</span> Treatment depends on severity — lifestyle change, medication, or surgery.</p>
+      </div>
+
+      <div class="disease-card">
+        <h3>🧠 Hypertension</h3>
+        <p><span class="label">Cause</span> Genetic tendency, obesity, lack of activity, high salt intake.</p>
+        <p><span class="label">Precautions</span> Check blood pressure often, reduce sodium, manage stress.</p>
+        <p><span class="label">Prevention</span> Balanced diet, physical activity, avoid alcohol and smoking.</p>
+        <p><span class="label">Cure</span> Controlled with medicines and lifestyle improvements.</p>
+      </div>
+
+      <div class="disease-card">
+        <h3>🦋 Thyroid Disorders</h3>
+        <p><span class="label">Cause</span> Imbalance in thyroid hormone production, autoimmune issues.</p>
+        <p><span class="label">Precautions</span> Regular thyroid function tests, avoid self-medication.</p>
+        <p><span class="label">Prevention</span> Eat iodine-rich foods, manage stress, stay consistent with treatment.</p>
+        <p><span class="label">Cure</span> Controlled with hormone therapy and lifestyle management.</p>
+      </div>
+
+      <div class="disease-card">
+        <h3>🧬 Cancer</h3>
+        <p><span class="label">Cause</span> Genetic mutation, lifestyle habits, environmental factors.</p>
+        <p><span class="label">Precautions</span> Avoid smoking, processed foods, and prolonged sun exposure.</p>
+        <p><span class="label">Prevention</span> Regular screening, balanced diet, and physical activity.</p>
+        <p><span class="label">Cure</span> Early detection enables effective treatment like chemo, radiation, or surgery.</p>
+      </div>
+
+      <div class="disease-card">
+        <h3>🌬️ Asthma</h3>
+        <p><span class="label">Cause</span> Allergens, pollution, family history, respiratory infections.</p>
+        <p><span class="label">Precautions</span> Avoid triggers, use inhalers as prescribed, stay away from smoke.</p>
+        <p><span class="label">Prevention</span> Strengthen lungs with breathing exercises, maintain clean air quality.</p>
+        <p><span class="label">Cure</span> No permanent cure, but manageable with treatment and environment control.</p>
+      </div>
+
+      <div class="disease-card">
+        <h3>🧘 Mental Health Issues</h3>
+        <p><span class="label">Cause</span> Genetic predisposition, trauma, or chemical imbalance.</p>
+        <p><span class="label">Precautions</span> Stay socially connected, manage stress, practice mindfulness.</p>
+        <p><span class="label">Prevention</span> Maintain emotional balance, seek therapy early, self-care routines.</p>
+        <p><span class="label">Cure</span> Through therapy, medications, and consistent psychological care.</p>
+      </div>
+
+      <div class="disease-card">
+        <h3>⚖️ Obesity</h3>
+        <p><span class="label">Cause</span> Genetic factors, overeating, inactivity.</p>
+        <p><span class="label">Precautions</span> Maintain portion control, avoid junk food, monitor BMI.</p>
+        <p><span class="label">Prevention</span> Regular physical activity, balanced meals, hydration.</p>
+        <p><span class="label">Cure</span> Sustainable weight loss through diet, exercise, and counseling.</p>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>

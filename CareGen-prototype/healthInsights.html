@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GenLink – Health Insights</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  body {
+    background-color: #f6f8fc;
+    color: #333;
+  }
+
+  /* Header */
+  header {
+    background: linear-gradient(90deg, rgba(19,46,152,0.8), #6b8ae8);
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    border-radius: 0 0 50px 50px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+  }
+
+  header h1 {
+    font-size: 2.4rem;
+    margin-bottom: 12px;
+  }
+
+  header p {
+    font-size: 1.1rem;
+    opacity: 0.95;
+  }
+
+  /* Main container */
+  .container {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 25px;
+  }
+
+  /* Insight grid */
+  .insight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+  }
+
+  /* Insight card */
+  .card {
+    background: white;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(19,46,152,0.15);
+  }
+
+  .card h2 {
+    font-size: 1.3rem;
+    color: rgba(19,46,152,0.9);
+    margin-bottom: 12px;
+  }
+
+  .card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #444;
+  }
+
+  .card img {
+    width: 65px;
+    margin-bottom: 15px;
+  }
+
+  /* Insights Summary Section */
+  .summary {
+    background: rgba(19,46,152,0.05);
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    margin-top: 80px;
+  }
+
+  .summary h2 {
+    color: rgba(19,46,152,0.9);
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+  }
+
+  .summary p {
+    color: #2F4858;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+  }
+
+  .btn {
+    background: rgba(19,46,152,0.9);
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.3s, transform 0.2s;
+  }
+
+  .btn:hover {
+    background: #5a7ee6;
+    transform: translateY(-3px);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    header h1 {
+      font-size: 1.9rem;
+    }
+    .card {
+      padding: 25px;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+  <header>
+    <h1>GenLink – Health Insights</h1>
+    <p>Discover patterns, predictions, and preventive insights for your family’s well-being</p>
+  </header>
+
+  <div class="container">
+
+    <div class="insight-grid">
+
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/4185/4185078.png" alt="Family Health">
+        <h2>🧬 Hereditary Pattern Analysis</h2>
+        <p>GenLink identifies shared health patterns across generations — spotting hereditary conditions like diabetes, hypertension, or heart issues before they become critical.</p>
+      </div>
+
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/3063/3063822.png" alt="Lifestyle Tracker">
+        <h2>🏃 Lifestyle & Habit Insights</h2>
+        <p>By analyzing lifestyle data, GenLink suggests balanced diet plans, daily step goals, and sleep recommendations to enhance overall well-being.</p>
+      </div>
+
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/4301/4301717.png" alt="AI Risk Predictor">
+        <h2>🤖 AI-Based Risk Predictor</h2>
+        <p>Our AI model forecasts potential health risks using family data, offering early alerts to enable preventive measures and better decisions.</p>
+      </div>
+
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2750/2750751.png" alt="Health Trends">
+        <h2>📊 Health Trends Dashboard</h2>
+        <p>Visualize your family’s overall health journey — track progress, improvements, and areas needing attention through clean, easy-to-understand charts.</p>
+      </div>
+
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/4320/4320338.png" alt="Personal Recommendations">
+        <h2>💡 Personalized Recommendations</h2>
+        <p>Receive tailor-made suggestions for each family member, like diet changes, exercise routines, and medical checkups for better preventive health.</p>
+      </div>
+
+      <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/2897/2897783.png" alt="Privacy Protection">
+        <h2>🔒 Smart Privacy Protection</h2>
+        <p>GenLink ensures all data is encrypted and shared only with consent — your health history remains private and secure at every step.</p>
+      </div>
+
+    </div>
+
+    <div class="summary">
+      <h2>🌿 Your Family’s Health, Smarter Together</h2>
+      <p>GenLink transforms complex data into actionable health insights, helping families stay connected, aware, and proactive about wellness.</p>
+      <a href="#" class="btn">View Detailed Analytics</a>
+    </div>
+
+  </div>
+
+</body>
+</html>

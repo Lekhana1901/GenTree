@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GenLink – Family Tree</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+  body{
+    background: #f0f4f8;
+    padding:20px;
+  }
+
+  .header{
+    text-align:center;
+    padding:40px 20px;
+    background: linear-gradient(90deg,#13469a,#3b70d8);
+    color:#fff;
+    border-radius:12px;
+    margin-bottom:30px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.2);
+  }
+
+  .container{
+    max-width:1200px;
+    margin:0 auto;
+    background:#fff;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.1);
+  }
+
+  form{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+    margin-bottom:40px;
+    justify-content:center;
+  }
+
+  input, select, button{
+    padding:12px 15px;
+    border-radius:12px;
+    border:1px solid #ccc;
+    outline:none;
+    font-family:'Poppins',sans-serif;
+    font-size:0.95rem;
+  }
+
+  input, select{
+    flex:1;
+    min-width:150px;
+  }
+
+  button{
+    background:#13469a;
+    color:#fff;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+    border:none;
+  }
+
+  button:hover{background:#0f356f;}
+
+  /* Tree Styles */
+  .tree{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+  }
+
+  .generation{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    position:relative;
+    margin-bottom:50px;
+  }
+
+  .member-card{
+    background:#fff;
+    padding:15px 20px;
+    border-radius:12px;
+    text-align:center;
+    min-width:160px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+    position:relative;
+    transition:transform 0.3s;
+  }
+
+  .member-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 6px 20px rgba(0,0,0,0.15);
+  }
+
+  /* Vertical lines connecting generations */
+  .member-card::after{
+    content:"";
+    position:absolute;
+    bottom:-30px;
+    left:50%;
+    width:2px;
+    height:30px;
+    background:#13469a;
+  }
+
+  .generation:last-child .member-card::after{
+    display:none;
+  }
+
+  /* Connecting lines between parents and children */
+  .line{
+    position:absolute;
+    height:2px;
+    background:#13469a;
+    top:-30px;
+  }
+
+  @media(max-width:768px){
+    .generation{flex-direction:column;align-items:center;}
+    .member-card::after{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>GenLink – Family Tree</h1>
+  <p>Visualize your family and health connections across generations</p>
+</div>
+
+<div class="container">
+  <form id="familyForm">
+    <input type="text" id="name" placeholder="Full Name" required>
+    <select id="generation" required>
+      <option value="">Generation</option>
+      <option value="Grandparent">Grandparent</option>
+      <option value="Parent">Parent</option>
+      <option value="Child">Child</option>
+    </select>
+    <input type="number" id="age" placeholder="Age" required>
+    <select id="gender" required>
+      <option value="">Gender</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select>
+    <input type="text" id="health" placeholder="Health Conditions">
+    <select id="parent">
+      <option value="">Parent (if applicable)</option>
+    </select>
+    <button type="submit">Add Member</button>
+  </form>
+
+  <div class="tree" id="treeContainer">
+    <!-- Family Tree will render here -->
+  </div>
+</div>
+
+<script>
+const form = document.getElementById('familyForm');
+const treeContainer = document.getElementById('treeContainer');
+const parentSelect = document.getElementById('parent');
+
+let members = [];
+
+form.addEventListener('submit', e=>{
+  e.preventDefault();
+  const name = document.getElementById('name').value.trim();
+  const generation = document.getElementById('generation').value;
+  const age = document.getElementById('age').value;
+  const gender = document.getElementById('gender').value;
+  const health = document.getElementById('health').value || 'Healthy';
+  const parentName = document.getElementById('parent').value;
+
+  if(!name || !generation || !age || !gender){ alert('Fill all required fields'); return; }
+
+  const newMember = {name,generation,age,gender,health,parent:parentName,children:[]};
+  members.push(newMember);
+
+  // Assign child to parent
+  if(parentName){
+    const parent = members.find(m=>m.name===parentName);
+    if(parent) parent.children.push(newMember.name);
+  }
+
+  updateParentOptions();
+  renderTree();
+  form.reset();
+});
+
+function updateParentOptions(){
+  parentSelect.innerHTML = '<option value="">Parent (if applicable)</option>';
+  members.filter(m=>m.generation!=='Child').forEach(m=>{
+    const option = document.createElement('option');
+    option.value = m.name;
+    option.textContent = m.name;
+    parentSelect.appendChild(option);
+  });
+}
+
+function renderTree(){
+  treeContainer.innerHTML = '';
+  const genOrder = ['Grandparent','Parent','Child'];
+  genOrder.forEach(gen=>{
+    const genDiv = document.createElement('div');
+    genDiv.className='generation';
+    members.filter(m=>m.generation===gen).forEach(member=>{
+      const card = document.createElement('div');
+      card.className='member-card';
+      card.innerHTML=`
+        <h3>${member.name}</h3>
+        <p>Age: ${member.age}</p>
+        <p>Gender: ${member.gender}</p>
+        <p>Health: ${member.health}</p>
+      `;
+      genDiv.appendChild(card);
+    });
+    treeContainer.appendChild(genDiv);
+  });
+}
+</script>
+
+</body>
+</html>

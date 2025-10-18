@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GenLink – Login</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  body {
+    background-color: #f0f4f8;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  .login-box {
+    background: #fff;
+    padding: 50px 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+    width: 380px;
+  }
+
+  .login-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .login-header h1 {
+    color: rgba(19,46,152,0.9);
+    font-size: 2rem;
+    margin-bottom: 8px;
+  }
+
+  .login-header p {
+    color: #555;
+    font-size: 0.95rem;
+  }
+
+  label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgba(19,46,152,0.9);
+    margin-bottom: 6px;
+  }
+
+  input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    transition: border 0.3s;
+  }
+
+  input:focus {
+    border-color: rgba(19,46,152,0.9);
+  }
+
+  .btn {
+    width: 100%;
+    padding: 12px;
+    background: rgba(19,46,152,0.9);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .btn:hover {
+    background: rgba(19,46,152,0.8);
+    transform: translateY(-2px);
+  }
+
+  .links {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+  }
+
+  .links a {
+    color: rgba(19,46,152,0.9);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+
+  .links a:hover {
+    color: #0036c4;
+  }
+
+  @media (max-width: 480px) {
+    .login-box {
+      width: 90%;
+      padding: 35px 25px;
+    }
+  }
+</style>
+</head>
+
+<body>
+  <div class="login-box">
+    <div class="login-header">
+      <h1>GenLink</h1>
+      <p>Login to access your Family Health Story</p>
+    </div>
+
+    <form>
+      <label for="email">Email Address</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Enter your password" required>
+
+      <button type="submit" class="btn">Login</button>
+    </form>
+
+    <div class="links">
+      <p>Don’t have an account? <a href="#">Sign Up</a></p>
+      <p><a href="#">Forgot Password?</a></p>
+    </div>
+  </div>
+</body>
+</html>

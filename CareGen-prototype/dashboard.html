@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GenLink – Health Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  body {
+    background-color: #f4f6fb;
+    color: #333;
+  }
+
+  /* Header */
+  header {
+    background: linear-gradient(90deg, rgba(19,46,152,0.8), #6b8ae8);
+    color: #fff;
+    text-align: center;
+    padding: 60px 20px;
+    border-radius: 0 0 50px 50px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  }
+
+  header h1 {
+    font-size: 2.4rem;
+    margin-bottom: 10px;
+  }
+
+  header p {
+    font-size: 1rem;
+    opacity: 0.95;
+  }
+
+  /* Container */
+  .container {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 25px;
+  }
+
+  /* Dashboard Grid */
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+  }
+
+  /* Card */
+  .card {
+    background: white;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: all 0.3s;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(19,46,152,0.15);
+  }
+
+  .card h3 {
+    font-size: 1.2rem;
+    color: rgba(19,46,152,0.9);
+    margin-bottom: 12px;
+  }
+
+  .card p {
+    color: #2F4858;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  /* Charts (Placeholder style) */
+  .chart {
+    height: 200px;
+    background: linear-gradient(135deg, rgba(19,46,152,0.1), rgba(19,46,152,0.05));
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(19,46,152,0.7);
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  /* Stats Section */
+  .stats {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 60px 0;
+  }
+
+  .stat {
+    background: #fff;
+    border-radius: 20px;
+    padding: 30px 40px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 240px;
+    margin: 15px;
+  }
+
+  .stat h2 {
+    color: rgba(19,46,152,0.9);
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  .stat p {
+    font-size: 0.95rem;
+    color: #444;
+  }
+
+  /* CTA */
+  .cta {
+    text-align: center;
+    margin-top: 70px;
+  }
+
+  .btn {
+    background: rgba(19,46,152,0.9);
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s;
+  }
+
+  .btn:hover {
+    background: #5a7ee6;
+    transform: translateY(-3px);
+  }
+
+  @media (max-width: 768px) {
+    header h1 {
+      font-size: 1.9rem;
+    }
+    .stat {
+      width: 200px;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+  <header>
+    <h1>GenLink – Health Dashboard</h1>
+    <p>Visualize your family’s health data and monitor wellness trends</p>
+  </header>
+
+  <div class="container">
+
+    <!-- Top Stats -->
+    <div class="stats">
+      <div class="stat">
+        <h2>72%</h2>
+        <p>Healthy Family Index</p>
+      </div>
+      <div class="stat">
+        <h2>5</h2>
+        <p>Common Conditions</p>
+      </div>
+      <div class="stat">
+        <h2>3</h2>
+        <p>Active Alerts</p>
+      </div>
+      <div class="stat">
+        <h2>8</h2>
+        <p>Family Members</p>
+      </div>
+    </div>
+
+    <!-- Dashboard Cards -->
+    <div class="dashboard-grid">
+
+      <div class="card">
+        <h3>📊 Family Health Overview</h3>
+        <div class="chart">Health Trend Chart</div>
+        <p>Track key health metrics such as average heart rate, blood pressure, and activity levels across all family members.</p>
+      </div>
+
+      <div class="card">
+        <h3>🧬 Genetic Risk Analysis</h3>
+        <div class="chart">Genetic Risk Graph</div>
+        <p>AI predicts potential hereditary health issues like diabetes or hypertension using family data.</p>
+      </div>
+
+      <div class="card">
+        <h3>🍎 Lifestyle Tracker</h3>
+        <div class="chart">Activity & Nutrition Chart</div>
+        <p>Compare daily habits, diet quality, and sleep cycles among family members to encourage balanced living.</p>
+      </div>
+
+      <div class="card">
+        <h3>💊 Medication & Checkup Logs</h3>
+        <div class="chart">Health Records Timeline</div>
+        <p>Monitor medical appointments, prescriptions, and follow-ups for easy family health management.</p>
+      </div>
+
+      <div class="card">
+        <h3>💡 Recommendations</h3>
+        <div class="chart">AI Suggestion Feed</div>
+        <p>GenLink offers personalized suggestions based on lifestyle and genetic factors for preventive care.</p>
+      </div>
+
+      <div class="card">
+        <h3>🛡️ Privacy & Consent</h3>
+        <div class="chart">Data Access Chart</div>
+        <p>Keep track of who can view and share family health data with full encryption and consent control.</p>
+      </div>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+      <a href="#" class="btn">View Detailed Reports</a>
+    </div>
+
+  </div>
+
+</body>
+</html>

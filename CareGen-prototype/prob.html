@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GenLink – Problems</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+  body{background:#f0f4f8;padding:20px;}
+
+  .header{
+    text-align:center;
+    padding:40px 20px;
+    background: linear-gradient(90deg,#13469a,#3b70d8);
+    color:#fff;
+    border-radius:12px;
+    margin-bottom:30px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.2);
+  }
+
+  .container{
+    max-width:1100px;
+    margin:0 auto;
+    background:#fff;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.1);
+  }
+
+  h2{text-align:center;color:#13469a;margin-bottom:30px;}
+
+  .problem-list{
+    display:grid;
+    grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+    gap:25px;
+  }
+
+  .problem-card{
+    background:#f5f7fa;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.05);
+    transition:transform 0.3s, box-shadow 0.3s;
+    border-left:6px solid #13469a;
+  }
+
+  .problem-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 6px 20px rgba(0,0,0,0.1);
+  }
+
+  .problem-card h3{
+    color:#13469a;
+    margin-bottom:12px;
+    font-size:1.1rem;
+  }
+
+  .problem-card p{
+    color:#2F4858;
+    font-size:0.95rem;
+    line-height:1.5;
+  }
+
+  .section-divider {
+    margin:50px 0 30px 0;
+    height:2px;
+    background:linear-gradient(90deg,#13469a,#3b70d8);
+    border:none;
+  }
+
+  @media(max-width:768px){
+    .problem-list{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>GenLink – Family Health Challenges</h1>
+  <p>Understanding the key problems GenLink aims to solve</p>
+</div>
+
+<div class="container">
+  <h2>Core Problems</h2>
+  <div class="problem-list">
+    <div class="problem-card">
+      <h3>Individual Health Management</h3>
+      <p>Most people manage their health individually, without considering the medical history of their family, missing important hereditary patterns.</p>
+    </div>
+    <div class="problem-card">
+      <h3>Scattered Health Data</h3>
+      <p>Health information is often scattered across different family members and generations, making it difficult to track overall family health.</p>
+    </div>
+    <div class="problem-card">
+      <h3>Late Detection of Hereditary Diseases</h3>
+      <p>Families often discover genetic or hereditary conditions too late due to lack of organized records and proactive analysis.</p>
+    </div>
+    <div class="problem-card">
+      <h3>Lack of Interactive Visualization</h3>
+      <p>There is no simple, interactive method to view and analyze shared health patterns across family generations effectively.</p>
+    </div>
+    <div class="problem-card">
+      <h3>Privacy Concerns</h3>
+      <p>Health data is sensitive, and sharing information among family members or platforms can compromise privacy if not properly secured.</p>
+    </div>
+  </div>
+
+  <hr class="section-divider">
+
+  <h2>Common Health Problems Across Families</h2>
+  <div class="problem-list">
+    <div class="problem-card">
+      <h3>Diabetes</h3>
+      <p>One of the most common hereditary diseases. Poor lifestyle habits combined with genetics make it a long-term challenge for many families.</p>
+    </div>
+    <div class="problem-card">
+      <h3>Heart Disease</h3>
+      <p>High blood pressure, cholesterol, and lifestyle issues often run in families, making early awareness crucial for prevention.</p>
+    </div>
+    <div class="problem-card">
+      <h3>Hypertension</h3>
+      <p>Often unnoticed until it causes complications, hypertension tends to appear across generations without early tracking.</p>
+    </div>
+    <div class="problem-card">
+      <h3>Obesity</h3>
+      <p>Genetic predisposition, combined with dietary habits, contributes to obesity that affects both children and adults in families.</p>
+    </div>
+    <div class="problem-card">
+      <h3>Cancer</h3>
+      <p>Several cancers have hereditary tendencies. Family history awareness can help in early detection and timely treatment.</p>
+    </div>
+    <div class="problem-card">
+      <h3>Thyroid Disorders</h3>
+      <p>Thyroid imbalances frequently affect multiple family members, especially women, and need consistent monitoring.</p>
+    </div>
+    <div class="problem-card">
+      <h3>Respiratory Issues</h3>
+      <p>Asthma and related breathing conditions often pass genetically, worsening with pollution or allergens in families.</p>
+    </div>
+    <div class="problem-card">
+      <h3>Mental Health Disorders</h3>
+      <p>Conditions like depression, anxiety, and bipolar disorder can have both genetic and environmental causes within families.</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

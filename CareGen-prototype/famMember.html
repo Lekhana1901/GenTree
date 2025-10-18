@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GenLink – Family Members</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+  body{
+    background: #f0f4f8;
+    padding:20px;
+  }
+
+  .header{
+    text-align:center;
+    padding:40px 20px;
+    background: linear-gradient(90deg,#13469a,#3b70d8);
+    color:#fff;
+    border-radius:12px;
+    margin-bottom:30px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.2);
+  }
+
+  .container{
+    max-width:1000px;
+    margin:0 auto;
+    background:#fff;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.1);
+  }
+
+  form{
+    display:flex;
+    flex-wrap:wrap;
+    gap:15px;
+    margin-bottom:40px;
+    justify-content:center;
+  }
+
+  input, select, button{
+    padding:12px 15px;
+    border-radius:12px;
+    border:1px solid #ccc;
+    outline:none;
+    font-family:'Poppins',sans-serif;
+    font-size:0.95rem;
+  }
+
+  input, select{
+    flex:1;
+    min-width:150px;
+  }
+
+  button{
+    background:#13469a;
+    color:#fff;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+    border:none;
+  }
+
+  button:hover{background:#0f356f;}
+
+  /* Family Cards */
+  .family-list{
+    display:grid;
+    grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+    gap:20px;
+  }
+
+  .member-card{
+    background:#fff;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.1);
+    text-align:center;
+    transition: transform 0.3s;
+    position:relative;
+  }
+
+  .member-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 6px 20px rgba(0,0,0,0.15);
+  }
+
+  .member-card h3{
+    color:#13469a;
+    margin-bottom:10px;
+  }
+
+  .member-card p{
+    font-size:0.9rem;
+    margin-bottom:5px;
+    color:#2F4858;
+  }
+
+  @media(max-width:768px){
+    .family-list{grid-template-columns: repeat(auto-fill,minmax(150px,1fr));}
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>GenLink – Family Members</h1>
+  <p>Add and view your family member details</p>
+</div>
+
+<div class="container">
+  <form id="familyForm">
+    <input type="text" id="name" placeholder="Full Name" required>
+    <select id="relation" required>
+      <option value="">Relation</option>
+      <option value="Father">Father</option>
+      <option value="Mother">Mother</option>
+      <option value="Brother">Brother</option>
+      <option value="Sister">Sister</option>
+      <option value="Grandparent">Grandparent</option>
+      <option value="Other">Other</option>
+    </select>
+    <input type="number" id="age" placeholder="Age" required>
+    <select id="gender" required>
+      <option value="">Gender</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select>
+    <input type="text" id="conditions" placeholder="Health Conditions">
+    <button type="submit">Add Member</button>
+  </form>
+
+  <div class="family-list" id="familyList">
+    <!-- Member cards appear here -->
+  </div>
+</div>
+
+<script>
+const form = document.getElementById('familyForm');
+const familyList = document.getElementById('familyList');
+
+form.addEventListener('submit', e=>{
+  e.preventDefault();
+
+  const name = document.getElementById('name').value.trim();
+  const relation = document.getElementById('relation').value;
+  const age = document.getElementById('age').value;
+  const gender = document.getElementById('gender').value;
+  const conditions = document.getElementById('conditions').value || 'Healthy';
+
+  if(!name || !relation || !age || !gender){
+    alert('Please fill all required fields.');
+    return;
+  }
+
+  const card = document.createElement('div');
+  card.className = 'member-card';
+  card.innerHTML=`
+    <h3>${name}</h3>
+    <p><strong>Relation:</strong> ${relation}</p>
+    <p><strong>Age:</strong> ${age}</p>
+    <p><strong>Gender:</strong> ${gender}</p>
+    <p><strong>Health:</strong> ${conditions}</p>
+  `;
+
+  familyList.appendChild(card);
+  form.reset();
+});
+</script>
+
+</body>
+</html>
