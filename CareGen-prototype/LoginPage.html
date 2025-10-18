@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GenLink – Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #F8F9FA;
+    }
+
+    .login-container {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgb(0, 33, 71);
+      padding: 40px;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .logo {
+      width: 70px;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #003b49;
+    }
+
+    p.subtitle {
+      font-size: 0.9rem;
+      color: #5a5a5a;
+      margin-bottom: 25px;
+    }
+
+    .form-group {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px 15px;
+      padding-left: 40px;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      outline: none;
+      transition: 0.3s;
+    }
+
+    .form-group input:focus {
+      border-color: #009688;
+      box-shadow: 0 0 6px rgba(0, 150, 136, 0.3);
+    }
+
+    .form-group i {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      color: #888;
+      font-size: 18px;
+    }
+
+    .forgot {
+      display: block;
+      text-align: right;
+      font-size: 0.85rem;
+      color: #00796b;
+      margin-bottom: 20px;
+      text-decoration: none;
+    }
+
+    .forgot:hover {
+      text-decoration: underline;
+    }
+
+    .login-btn {
+      width: 100%;
+      background: linear-gradient(90deg, #009688, #2196f3);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      padding: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .login-btn:hover {
+      transform: scale(1.03);
+      box-shadow: 0 4px 15px rgba(33, 150, 243, 0.4);
+    }
+
+    .signup {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .signup a {
+      color: #00796b;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .signup a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 480px) {
+      .login-container {
+        padding: 30px 25px;
+      }
+      h1 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+  <script src="https://kit.fontawesome.com/4b9ba14b0f.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="login-container">
+    <img src="https://cdn-icons-png.flaticon.com/512/3774/3774299.png" class="logo" alt="GenLink Logo" />
+    <h1>GenLink</h1>
+    <p class="subtitle">Your Family Health, Connected.</p>
+
+    <form onsubmit="event.preventDefault(); alert('Login successful! (Prototype)')">
+      <div class="form-group">
+        <i class="fas fa-user"></i>
+        <input type="email" placeholder="Enter your email" required />
+      </div>
+
+      <div class="form-group">
+        <i class="fas fa-lock"></i>
+        <input type="password" placeholder="Enter your password" required />
+      </div>
+
+      <a href="#" class="forgot">Forgot password?</a>
+
+      <button type="submit" class="login-btn">Login</button>
+    </form>
+
+    <p class="signup">
+      Don’t have an account? <a href="#">Sign up</a>
+    </p>
+  </div>
+</body>
+</html>
